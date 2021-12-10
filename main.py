@@ -24,7 +24,10 @@ with open(__location__+'/config.json') as config_json:
 # == GET CONFIG VALUES ==
 fname = config['psd']
 new_name  = config['new_name']
-channel_list  = json.loads(config['channel_list'])
+#channel_list  = json.loads(config['channel_list'])
+channel_list1  = config['channel_list']
+channel_list = channel_list1.replace('[','').replace(']','').split(", ")
+
 '''  
 # Gradiometers
 channel_list = [
