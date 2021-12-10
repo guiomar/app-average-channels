@@ -26,7 +26,7 @@ fname = config['psd']
 channel_list  = config['channel_list']
 new_name  = config['new_name']
 
-
+'''  
 # Gradiometers
 channel_list = [
     'MEG2042','MEG2043','MEG1913','MEG1912','MEG2113','MEG2112','MEG1922','MEG1923','MEG1942','MEG1943',
@@ -35,7 +35,7 @@ channel_list = [
     'MEG2032','MEG2033','MEG2313','MEG2312','MEG2342','MEG2343','MEG2322','MEG2323','MEG2433','MEG2432',
     'MEG2122','MEG2123','MEG2333','MEG2332','MEG2513','MEG2512','MEG2523','MEG2522','MEG2133','MEG2132',
     'MEG2542','MEG2543','MEG2532','MEG2533']
-'''  
+
 # Magnetometers
 channel_list = [
     'MEG2041','MEG1911','MEG2111','MEG1921','MEG1941','MEG1641',
