@@ -59,10 +59,6 @@ sel_data = df_psd[df_psd.channels.isin(channel_list)].copy()
 avd_data = np.mean(sel_data, axis=0)
 std_data = np.std(sel_data, axis=0)
 
-#List of frequencies
-freqs = df_psd.columns.to_numpy()
-freqs = freqs.astype(float)
-
 
 # Channels averaged
 chin  = list(set(sel_data.channels).intersection(set(channel_list)))
@@ -76,6 +72,10 @@ df_psd_avg = pd.DataFrame(avd_data, columns=[new_name]).transpose()
 df_psd_avg.index.name = 'channels'
 df_psd_avg.columns.name = 'freqs'
 df_psd_avg.to_csv(os.path.join('out_dir','psd.tsv'), sep='\t')
+
+#List of frequencies
+freqs = df_psd_avg.columns.to_numpy()
+freqs = freqs.astype(float)
 
 # == FIGURES ==
 plt.figure(1)
