@@ -38,6 +38,8 @@ channel_list = [
     'MEG2122','MEG2123','MEG2333','MEG2332','MEG2513','MEG2512','MEG2523','MEG2522','MEG2133','MEG2132',
     'MEG2542','MEG2543','MEG2532','MEG2533']
 
+    MEG2042, MEG2043, MEG1913, MEG1912, MEG2113, MEG2112, MEG1922, MEG1923, MEG1942, MEG1943, MEG1642, MEG1643, MEG1933, MEG1932, MEG1733, MEG1732, MEG1723, MEG1722, MEG2143, MEG2142, MEG1742, MEG1743, MEG1712, MEG1713, MEG2032, MEG2033, MEG2313, MEG2312, MEG2342, MEG2343, MEG2322, MEG2323, MEG2433, MEG2432, MEG2122, MEG2123, MEG2333, MEG2332, MEG2513, MEG2512, MEG2523, MEG2522, MEG2133, MEG2132, MEG2542, MEG2543, MEG2532, MEG2533
+
 # Magnetometers
 channel_list = [
     'MEG2041','MEG1911','MEG2111','MEG1921','MEG1941','MEG1641',
@@ -55,6 +57,11 @@ sel_data = df_psd[df_psd.channels.isin(channel_list)].copy()
 
 # Average channels
 avd_data = np.mean(sel_data, axis=0)
+std_data = np.std(sel_data, axis=0)
+
+#List of frequencies
+freqs = df_psd.columns.to_numpy()
+freqs = freqs.astype(float)
 
 
 # Channels averaged
@@ -72,9 +79,11 @@ df_psd_avg.to_csv(os.path.join('out_dir','psd.tsv'), sep='\t')
 
 # == FIGURES ==
 plt.figure(1)
-plt.plot(avd_data)
-plt.xticks(df_psd_avg.columns[::40]) #take every 40th value in 'freqs'
+plt.plot(freqs,avd_data)
+plt.xticks(freqs[::40]) #take every 40th value in 'freqs'
+plt.fill_between(freqs, avd_data+std_data, avd_data-std_data, facecolor='blue', alpha=0.2)
 plt.grid(visible=1, alpha=0.5)
+plt.xlim(freqs[0]+1, freqs[-1])
 plt.xlabel('frequency [Hz]')
 plt.ylabel('PSD')
 plt.title('Averaged PSD')
