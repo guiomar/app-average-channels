@@ -83,7 +83,7 @@ plt.plot(freqs,avd_data)
 plt.xticks(freqs[::40]) #take every 40th value in 'freqs'
 plt.fill_between(freqs, avd_data+std_data, avd_data-std_data, facecolor='blue', alpha=0.2)
 plt.grid(visible=1, alpha=0.5)
-plt.xlim(freqs[0]+1, freqs[-1])
+plt.xlim(freqs[0], freqs[-1])
 plt.xlabel('frequency [Hz]')
 plt.ylabel('PSD')
 plt.title('Averaged PSD')
