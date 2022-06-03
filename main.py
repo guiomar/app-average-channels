@@ -87,6 +87,11 @@ plt.xlim(freqs[0], freqs[-1])
 plt.xlabel('frequency [Hz]')
 plt.ylabel('PSD')
 plt.title('Averaged PSD')
+ax = plt.subplot(111)
+# Hide the right and top spines
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
 plt.savefig(os.path.join('out_figs','avg_channels.png'))
 
 
