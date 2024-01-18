@@ -1,7 +1,7 @@
 # Average channels
 
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.584-blue.svg)](https://doi.org/10.25663/brainlife.app.584)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.599-blue.svg)](https://doi.org/10.25663/brainlife.app.599)
 
 Brainlife App to average channels from psd tsv files 
 
